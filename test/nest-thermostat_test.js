@@ -29,7 +29,7 @@ exports.nest = {
 
     test.ok(nest.init, 'should be exposed.');
     test.ok(nest.getInfo, 'should be exposed.');
-    
+
     test.done();
   }
 };

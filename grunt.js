@@ -10,12 +10,23 @@ module.exports = function(grunt) {
       files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
     },
     watch: {
-      files: '<config:lint.files>',
+      files: 'src/*.coffee',
       tasks: 'default'
+    },
+    coffee: {
+      app: {
+        src: [
+          'src/*.coffee'
+        ],
+        dest: 'lib',
+        options: {
+          bare: true
+        }
+      }
     },
     jshint: {
       options: {
-        curly: true,
+        curly: false,
         eqeqeq: true,
         immed: true,
         latedef: true,
@@ -35,6 +46,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'coffee lint test');
+  grunt.loadNpmTasks('grunt-coffee');
 
 };
